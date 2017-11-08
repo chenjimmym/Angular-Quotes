@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <form (submit)="addQuote($event)">
+      <h2>Add a Quote</h2>
+      <textarea
+      name="quote"
+      rows="4" 
+      cols="50" 
+      required 
+      minlength="4" 
+      maxlength="200" 
+      [(ngModel)]="quote.message" 
+      #message='ngModel'>
+    </textarea>
+    Errors: {{ message.errors | json }}
+    Valid: {{ message.valid | json }}
+    <br>
+      Author
+      <input 
+      type="text" 
+      name="author" 
+      required 
+      minlength="1" 
+      maxlength="50" 
+      [(ngModel)]="quote.author" 
+      #author='ngModel'>
+      Errors: {{ author.errors | json }}
+      Valid: {{ author.valid | json }}
+      <br>
+      <input type="submit">
+    </form>
+  </body>
+</html>
